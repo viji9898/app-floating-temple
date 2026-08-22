@@ -63,7 +63,7 @@ export const journeys = [
     durationLabel: "45 MIN",
     feelings: ["sleep"],
     instruments: ["Sound journey"],
-    audioPath: "Symphony+No.6+(1st+movement).m4a",
+    audioPath: "sleep-sample.m4a",
   },
 ];
 
