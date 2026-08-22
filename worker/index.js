@@ -3,6 +3,7 @@ const AUDIO_PREFIX = "/app-floating-temple/sample_audio/";
 const AUDIO_PATHS = {
   "calm-sample.m4a": "/app-floating-temple/calm-sample.m4a",
   "ground-sample.m4a": "/app-floating-temple/ground-sample.m4a",
+  "open-sample.m4a": "/app-floating-temple/open-sample.m4a",
   "release-sample.m4a": "/app-floating-temple/release-sample.m4a",
   "sleep-sample.m4a": "/app-floating-temple/sleep-sample.m4a",
   "energise-sample.m4a": "/app-floating-temple/energise-sample.m4a",
