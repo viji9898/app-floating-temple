@@ -8,7 +8,7 @@ Floating Temple is a mobile-first digital wellness experience built around immer
 - React Router
 - HTML5 Audio with custom controls
 - Plain CSS
-- Cloudflare Pages hosting
+- Cloudflare Workers Static Assets hosting
 - AWS S3 audio storage
 
 There is no backend, database, authentication, payment system, CMS, or AWS credential in the browser application.
@@ -80,7 +80,7 @@ Configure bucket CORS for the deployed site and local development:
 ]
 ```
 
-Replace the production origins with the actual Cloudflare Pages and custom domains. S3 supports byte-range requests used by browser seeking; do not proxy audio through the React application.
+Replace the production origins with the actual Cloudflare Worker and custom domains. S3 supports byte-range requests used by browser seeking; do not proxy audio through the React application.
 
 ### Upload the first audio file
 
@@ -111,16 +111,17 @@ npm run preview
 
 Vite writes the deployable application to `dist/`. The app loads only audio metadata until the listener explicitly presses play.
 
-## Cloudflare Pages deployment
+## Cloudflare deployment
 
-Connect the GitHub repository in Cloudflare Pages and configure:
+Connect the GitHub repository to a Cloudflare Worker and configure:
 
 - Framework preset: `Vite`
 - Build command: `npm run build`
 - Build output directory: `dist`
 - Environment variable: `VITE_AUDIO_BASE_URL`
+- Deploy command: `npm run deploy`
 
-The committed `public/_redirects` file becomes `dist/_redirects` and rewrites unknown paths to `index.html`, so direct React Router URLs such as `/journey/come-back` work.
+The committed `wrangler.jsonc` deploys `dist` as Workers Static Assets. Its `single-page-application` fallback serves `index.html` for direct React Router URLs such as `/journey/come-back` without a recursive `_redirects` rule.
 
 ## Future membership architecture
 
