@@ -4,7 +4,8 @@
   --muted: #79766f;
   --border: #d8d5ce;
   --page-pad: clamp(24px, 8vw, 38px);
-  font-family: "SFMono-Regular", "SF Mono", "Roboto Mono", "Courier New", monospace;
+  font-family:
+    "SFMono-Regular", "SF Mono", "Roboto Mono", "Courier New", monospace;
   color: var(--text);
   background: var(--background);
   font-synthesis: none;

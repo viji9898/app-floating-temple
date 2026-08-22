@@ -1,8 +1,13 @@
-import { formatTime } from '../utils/formatTime.js'
+import { formatTime } from "../utils/formatTime.js";
 
-export default function AudioProgress({ currentTime, duration, fallbackDuration, onSeek }) {
-  const displayDuration = duration || fallbackDuration
-  const maximum = duration || fallbackDuration || 1
+export default function AudioProgress({
+  currentTime,
+  duration,
+  fallbackDuration,
+  onSeek,
+}) {
+  const displayDuration = duration || fallbackDuration;
+  const maximum = duration || fallbackDuration || 1;
 
   return (
     <div className="audio-progress">
@@ -14,10 +19,10 @@ export default function AudioProgress({ currentTime, duration, fallbackDuration,
         step="1"
         value={Math.min(currentTime, maximum)}
         aria-label="Journey progress"
-        style={{ '--progress': `${(currentTime / maximum) * 100}%` }}
+        style={{ "--progress": `${(currentTime / maximum) * 100}%` }}
         onChange={(event) => onSeek(Number(event.target.value))}
       />
       <span>{formatTime(displayDuration)}</span>
     </div>
-  )
+  );
 }

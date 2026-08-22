@@ -74,7 +74,12 @@ Configure bucket CORS for the deployed site and local development:
       "http://localhost:5173",
       "http://127.0.0.1:5173"
     ],
-    "ExposeHeaders": ["Content-Length", "Content-Range", "Accept-Ranges", "ETag"],
+    "ExposeHeaders": [
+      "Content-Length",
+      "Content-Range",
+      "Accept-Ranges",
+      "ETag"
+    ],
     "MaxAgeSeconds": 3600
   }
 ]

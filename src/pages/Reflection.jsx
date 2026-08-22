@@ -1,20 +1,20 @@
-import { Navigate, useNavigate, useParams } from 'react-router-dom'
-import AppLayout from '../components/AppLayout.jsx'
-import { findJourney } from '../data/journeys.js'
+import { Navigate, useNavigate, useParams } from "react-router-dom";
+import AppLayout from "../components/AppLayout.jsx";
+import { findJourney } from "../data/journeys.js";
 
-const reflections = ['CALMER', 'LIGHTER', 'OPEN', 'ENERGISED', 'SAME']
+const reflections = ["CALMER", "LIGHTER", "OPEN", "ENERGISED", "SAME"];
 
 export default function Reflection() {
-  const { slug } = useParams()
-  const navigate = useNavigate()
-  const journey = findJourney(slug)
+  const { slug } = useParams();
+  const navigate = useNavigate();
+  const journey = findJourney(slug);
 
-  if (!journey) return <Navigate to="/" replace />
+  if (!journey) return <Navigate to="/" replace />;
 
   const selectReflection = (reflection) => {
-    sessionStorage.setItem('floating-temple-reflection', reflection)
-    navigate('/complete', { state: { reflection } })
-  }
+    sessionStorage.setItem("floating-temple-reflection", reflection);
+    navigate("/complete", { state: { reflection } });
+  };
 
   return (
     <AppLayout className="reflection-screen">
@@ -26,11 +26,15 @@ export default function Reflection() {
       </div>
       <div className="feeling-list reflection-list">
         {reflections.map((reflection) => (
-          <button key={reflection} type="button" onClick={() => selectReflection(reflection)}>
+          <button
+            key={reflection}
+            type="button"
+            onClick={() => selectReflection(reflection)}
+          >
             {reflection}
           </button>
         ))}
       </div>
     </AppLayout>
-  )
+  );
 }

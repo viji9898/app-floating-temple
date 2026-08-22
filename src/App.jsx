@@ -1,12 +1,12 @@
-import { Navigate, Route, Routes } from 'react-router-dom'
-import Complete from './pages/Complete.jsx'
-import Feel from './pages/Feel.jsx'
-import Journey from './pages/Journey.jsx'
-import Journeys from './pages/Journeys.jsx'
-import Landing from './pages/Landing.jsx'
-import Player from './pages/Player.jsx'
-import Prepare from './pages/Prepare.jsx'
-import Reflection from './pages/Reflection.jsx'
+import { Navigate, Route, Routes } from "react-router-dom";
+import Complete from "./pages/Complete.jsx";
+import Feel from "./pages/Feel.jsx";
+import Journey from "./pages/Journey.jsx";
+import Journeys from "./pages/Journeys.jsx";
+import Landing from "./pages/Landing.jsx";
+import Player from "./pages/Player.jsx";
+import Prepare from "./pages/Prepare.jsx";
+import Reflection from "./pages/Reflection.jsx";
 
 export default function App() {
   return (
@@ -21,5 +21,5 @@ export default function App() {
       <Route path="/complete" element={<Complete />} />
       <Route path="*" element={<Navigate to="/" replace />} />
     </Routes>
-  )
+  );
 }
