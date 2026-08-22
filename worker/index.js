@@ -2,6 +2,7 @@ const AUDIO_ORIGIN = "https://customer-apps-techhq.s3.eu-west-2.amazonaws.com";
 const AUDIO_PREFIX = "/app-floating-temple/sample_audio/";
 const AUDIO_PATHS = {
   "ground-sample.m4a": "/app-floating-temple/ground-sample.m4a",
+  "release-sample.m4a": "/app-floating-temple/release-sample.m4a",
 };
 
 export default {

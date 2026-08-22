@@ -52,7 +52,7 @@ export const journeys = [
     durationLabel: "31 MIN",
     feelings: ["release"],
     instruments: ["Breath", "Gong", "Voice"],
-    audioPath: "sample4.m4a",
+    audioPath: "release-sample.m4a",
   },
   {
     id: "deep-rest",
