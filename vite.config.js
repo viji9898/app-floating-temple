@@ -9,8 +9,12 @@ export default defineConfig({
       "/audio": {
         target: "https://customer-apps-techhq.s3.eu-west-2.amazonaws.com",
         changeOrigin: true,
-        rewrite: (path) =>
-          path.replace(/^\/audio/, "/app-floating-temple/sample_audio"),
+        rewrite: (path) => {
+          if (path === "/audio/ground-sample.m4a") {
+            return "/app-floating-temple/ground-sample.m4a";
+          }
+          return path.replace(/^\/audio/, "/app-floating-temple/sample_audio");
+        },
       },
     },
   },

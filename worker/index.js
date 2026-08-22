@@ -1,5 +1,8 @@
 const AUDIO_ORIGIN = "https://customer-apps-techhq.s3.eu-west-2.amazonaws.com";
 const AUDIO_PREFIX = "/app-floating-temple/sample_audio/";
+const AUDIO_PATHS = {
+  "ground-sample.m4a": "/app-floating-temple/ground-sample.m4a",
+};
 
 export default {
   async fetch(request, env) {
@@ -18,7 +21,8 @@ export default {
         return new Response("Not found", { status: 404 });
       }
 
-      const upstreamUrl = `${AUDIO_ORIGIN}${AUDIO_PREFIX}${fileName}`;
+      const upstreamPath = AUDIO_PATHS[fileName] || `${AUDIO_PREFIX}${fileName}`;
+      const upstreamUrl = `${AUDIO_ORIGIN}${upstreamPath}`;
       const upstreamResponse = await fetch(upstreamUrl, {
         method: request.method,
         headers: request.headers.has("Range")
