@@ -4,6 +4,7 @@ const AUDIO_PATHS = {
   "ground-sample.m4a": "/app-floating-temple/ground-sample.m4a",
   "release-sample.m4a": "/app-floating-temple/release-sample.m4a",
   "sleep-sample.m4a": "/app-floating-temple/sleep-sample.m4a",
+  "energise-sample.m4a": "/app-floating-temple/energise-sample.m4a",
 };
 
 export default {

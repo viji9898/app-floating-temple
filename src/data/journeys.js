@@ -55,6 +55,17 @@ export const journeys = [
     audioPath: "release-sample.m4a",
   },
   {
+    id: "energise",
+    slug: "energise",
+    title: "ENERGISE",
+    description: "A bright journey through breath and sound into movement.",
+    durationSeconds: 919,
+    durationLabel: "15 MIN",
+    feelings: ["energise"],
+    instruments: ["Breath", "Sound journey"],
+    audioPath: "energise-sample.m4a",
+  },
+  {
     id: "deep-rest",
     slug: "deep-rest",
     title: "DEEP REST",
