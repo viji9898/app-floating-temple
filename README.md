@@ -40,10 +40,10 @@ Set the audio origin in `.env`, then open the local URL printed by Vite. Run `np
 ## Environment variables
 
 ```dotenv
-VITE_AUDIO_BASE_URL=https://audio.floatingtemple.com
+VITE_AUDIO_BASE_URL=/audio
 ```
 
-This is a public audio origin, not a secret. Never add `AWS_ACCESS_KEY_ID`, `AWS_SECRET_ACCESS_KEY`, bucket credentials, or signed URL secrets to a Vite environment variable.
+`/audio` is the default when this variable is omitted. The Cloudflare Worker proxies that path to the public S3 sample folder, preserving byte-range requests and requiring no credentials. Set an absolute public audio origin later to bypass the proxy. Never add `AWS_ACCESS_KEY_ID`, `AWS_SECRET_ACCESS_KEY`, bucket credentials, or signed URL secrets to a Vite environment variable.
 
 The seeded journeys currently use the five sample files under `app-floating-temple/sample_audio`, in journey order. Replace the base URL and each journey's `audioPath` when production masters are published.
 
@@ -118,7 +118,7 @@ Connect the GitHub repository to a Cloudflare Worker and configure:
 - Framework preset: `Vite`
 - Build command: `npm run build`
 - Build output directory: `dist`
-- Environment variable: `VITE_AUDIO_BASE_URL`
+- Optional environment variable: `VITE_AUDIO_BASE_URL` (defaults to `/audio`)
 - Deploy command: `npm run deploy`
 
 The committed `wrangler.jsonc` deploys `dist` as Workers Static Assets. Its `single-page-application` fallback serves `index.html` for direct React Router URLs such as `/journey/come-back` without a recursive `_redirects` rule.
