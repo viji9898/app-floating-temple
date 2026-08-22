@@ -1,0 +1,290 @@
+body {
+  min-width: 320px;
+  min-height: 100vh;
+  min-height: 100dvh;
+  overflow-x: hidden;
+  background: var(--background);
+  color: var(--text);
+  font-size: 16px;
+  line-height: 1.55;
+}
+
+button,
+a { color: inherit; }
+button { border: 0; padding: 0; background: none; cursor: pointer; }
+a { text-decoration: none; }
+
+.app-shell {
+  width: 100%;
+  max-width: 460px;
+  min-height: 100vh;
+  min-height: 100dvh;
+  margin: 0 auto;
+  padding: calc(var(--page-pad) + env(safe-area-inset-top)) var(--page-pad)
+    calc(var(--page-pad) + env(safe-area-inset-bottom));
+}
+
+.screen { display: flex; flex-direction: column; }
+.screen-enter { animation: screen-in 500ms ease-out both; }
+.screen-exit { opacity: 0; transition: opacity 500ms ease; }
+
+@keyframes screen-in {
+  from { opacity: 0; transform: translateY(5px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.statement {
+  font-size: clamp(24px, 7vw, 34px);
+  line-height: 1.25;
+  letter-spacing: 0;
+  font-weight: 400;
+}
+.body-copy { font-size: 16px; line-height: 1.55; }
+.eyebrow { font-size: 12px; line-height: 1.4; letter-spacing: 0.04em; }
+
+.primary-action {
+  display: flex;
+  align-items: center;
+  width: fit-content;
+  min-height: 52px;
+  border-bottom: 1px solid var(--text);
+  font-size: 14px;
+  letter-spacing: 0.04em;
+}
+
+.back-button {
+  display: grid;
+  place-items: center;
+  width: 48px;
+  min-height: 48px;
+  margin: -12px 0 0 -14px;
+  font-size: 22px;
+}
+
+.wordmark {
+  font-size: clamp(20px, 6vw, 27px);
+  line-height: 1.12;
+  letter-spacing: 0;
+  font-weight: 400;
+}
+
+.landing-screen .wordmark { margin-top: 1vh; }
+.landing-intro { margin-top: clamp(72px, 15vh, 128px); }
+.landing-intro .short-rule { display: block; margin: 34px 0; }
+.landing-screen .primary-action,
+.prepare-screen .primary-action,
+.message-screen .primary-action,
+.journey-detail-screen .primary-action,
+.complete-screen .primary-action { margin-top: auto; }
+
+.prepare-copy {
+  display: grid;
+  gap: clamp(44px, 9vh, 76px);
+  margin-top: clamp(54px, 13vh, 116px);
+}
+
+.feel-screen .statement { margin-top: clamp(34px, 8vh, 72px); }
+.feeling-list {
+  display: flex;
+  flex-direction: column;
+  margin-top: clamp(38px, 8vh, 70px);
+}
+.feeling-list a,
+.feeling-list button {
+  display: flex;
+  align-items: center;
+  min-height: clamp(52px, 8.5vh, 68px);
+  font-size: clamp(18px, 5vw, 22px);
+  letter-spacing: 0.04em;
+  text-align: left;
+}
+
+.journeys-screen .eyebrow { margin-top: clamp(42px, 9vh, 76px); }
+.down-arrow { display: block; margin: clamp(28px, 6vh, 48px) 0; }
+.journey-recommendation { display: grid; gap: 12px; }
+.journey-title { font-size: clamp(18px, 5vw, 22px); }
+.journeys-screen .primary-action { margin-top: 4px; }
+.other-journeys {
+  display: grid;
+  gap: 14px;
+  margin-top: auto;
+  padding-top: 42px;
+  color: var(--muted);
+  font-size: 11px;
+  letter-spacing: 0.04em;
+}
+.other-journeys a {
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+  color: var(--text);
+  font-size: 13px;
+}
+
+.journey-detail {
+  display: grid;
+  gap: 20px;
+  margin-top: clamp(44px, 10vh, 88px);
+}
+.journey-description { margin-top: clamp(28px, 6vh, 48px); }
+.message-screen { gap: 54px; }
+.message-screen .statement { margin-top: clamp(74px, 16vh, 140px); }
+
+.player-screen {
+  position: relative;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+}
+.player-exit {
+  min-width: 48px;
+  min-height: 48px;
+  justify-self: end;
+  color: var(--muted);
+  font-size: 11px;
+  letter-spacing: 0.04em;
+  opacity: 0;
+  transition: opacity 250ms ease;
+  pointer-events: none;
+}
+.player-exit.is-visible,
+.restart-control.is-visible { opacity: 1; pointer-events: auto; }
+.player-prompt {
+  align-self: start;
+  display: grid;
+  gap: 28px;
+  margin-top: clamp(24px, 7vh, 62px);
+  font-size: clamp(23px, 6.5vw, 31px);
+  line-height: 1.3;
+}
+.breath-circle {
+  position: absolute;
+  top: 51%;
+  left: 50%;
+  width: clamp(82px, 25vw, 112px);
+  aspect-ratio: 1;
+  border: 1px solid var(--text);
+  border-radius: 50%;
+  transform: translate(-50%, -50%) scale(0.82);
+  animation: breathe 10s ease-in-out infinite;
+}
+@keyframes breathe {
+  0%, 100% { transform: translate(-50%, -50%) scale(0.82); }
+  50% { transform: translate(-50%, -50%) scale(1); }
+}
+.player-controls {
+  align-self: end;
+  display: grid;
+  justify-items: center;
+  min-height: 150px;
+}
+.loading-copy {
+  min-height: 24px;
+  color: var(--muted);
+  font-size: 12px;
+}
+.audio-progress {
+  display: grid;
+  grid-template-columns: 42px 1fr 42px;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  font-size: 11px;
+  font-variant-numeric: tabular-nums;
+}
+.audio-progress span:last-child { text-align: right; }
+.audio-progress input {
+  width: 100%;
+  height: 44px;
+  margin: 0;
+  appearance: none;
+  background: transparent;
+  cursor: pointer;
+}
+.audio-progress input::-webkit-slider-runnable-track { height: 1px; background: var(--border); }
+.audio-progress input::-webkit-slider-thumb {
+  width: 16px;
+  height: 16px;
+  margin-top: -7.5px;
+  appearance: none;
+  border: 1px solid var(--text);
+  border-radius: 50%;
+  background: var(--background);
+}
+.audio-progress input::-moz-range-track { height: 1px; background: var(--border); }
+.audio-progress input::-moz-range-progress { height: 1px; background: var(--text); }
+.audio-progress input::-moz-range-thumb {
+  width: 16px;
+  height: 16px;
+  border: 1px solid var(--text);
+  border-radius: 50%;
+  background: var(--background);
+}
+.play-control {
+  min-width: 88px;
+  min-height: 52px;
+  margin-top: 4px;
+  font-size: 13px;
+  letter-spacing: 0.04em;
+}
+.restart-control {
+  min-width: 88px;
+  min-height: 44px;
+  color: var(--muted);
+  font-size: 10px;
+  letter-spacing: 0.04em;
+  opacity: 0;
+  transition: opacity 250ms ease;
+  pointer-events: none;
+}
+.player-message {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-content: center;
+  justify-items: start;
+  gap: 34px;
+  padding: var(--page-pad);
+  font-size: clamp(24px, 7vw, 34px);
+  line-height: 1.3;
+}
+.player-message button {
+  min-height: 48px;
+  border-bottom: 1px solid var(--text);
+  font-size: 13px;
+}
+
+.reflection-intro {
+  display: grid;
+  gap: clamp(24px, 5vh, 38px);
+  margin-top: clamp(34px, 7vh, 64px);
+}
+.reflection-intro h1,
+.complete-copy h1 { font: inherit; }
+.reflection-list { margin-top: clamp(24px, 5vh, 42px); }
+.complete-copy {
+  display: grid;
+  gap: clamp(42px, 9vh, 72px);
+  margin-top: clamp(62px, 14vh, 124px);
+}
+
+@media (max-height: 680px) {
+  .landing-intro { margin-top: 42px; }
+  .prepare-copy { gap: 30px; margin-top: 30px; }
+  .feel-screen .statement { margin-top: 20px; }
+  .feeling-list { margin-top: 20px; }
+  .reflection-intro { gap: 18px; margin-top: 18px; }
+  .reflection-list { margin-top: 12px; }
+  .journey-detail { margin-top: 24px; gap: 14px; }
+  .journey-description { margin-top: 12px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
