@@ -11,6 +11,7 @@ export default defineConfig({
         changeOrigin: true,
         rewrite: (path) => {
           if (
+            path === "/audio/calm-sample.m4a" ||
             path === "/audio/ground-sample.m4a" ||
             path === "/audio/release-sample.m4a" ||
             path === "/audio/sleep-sample.m4a" ||

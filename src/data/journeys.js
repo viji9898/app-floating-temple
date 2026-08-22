@@ -8,7 +8,7 @@ export const journeys = [
     durationLabel: "12 MIN",
     feelings: ["calm"],
     instruments: ["Breath", "Tibetan bowls"],
-    audioPath: "sample1.m4a",
+    audioPath: "calm-sample.m4a",
   },
   {
     id: "soft-landing",
