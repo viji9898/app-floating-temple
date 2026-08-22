@@ -19,7 +19,7 @@ export const journeys = [
     durationLabel: "18 MIN",
     feelings: ["calm"],
     instruments: ["Breath", "Handpan"],
-    audioPath: "sample2.m4a",
+    audioPath: "calm-sample.m4a",
   },
   {
     id: "ground",
